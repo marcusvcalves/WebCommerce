@@ -8,12 +8,17 @@ state = {
 };
 
 componentDidMount() {
-  fetch('http://127.0.0.1:8000/api/mostrar-produtos/')
-    .then(response => response.json())
-    .then(produtos => this.setState({ produtos }))
-    .catch(err => console.log(err));
+  this.loadProducts();
 }
+loadProducts = async () => {
+  const productsResponse =  fetch('http://127.0.0.1:8000/api/mostrar-produtos/');
 
+  const [products] = await Promise.all([productsResponse]);
+
+  const productsJson = await products.json();
+
+  this.setState({ produtos: productsJson });
+}
 
 
 render() {
