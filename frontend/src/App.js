@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
 
-function App() {
+
+class App extends Component {
+state = {
+  produtos: []
+};
+
+componentDidMount() {
+  fetch('http://127.0.0.1:8000/api/mostrar-produtos/')
+    .then(response => response.json())
+    .then(produtos => this.setState({ produtos }))
+    .catch(err => console.log(err));
+}
+
+
+
+render() {
+  const { produtos } = this.state;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <div className="App">
+    {produtos.map(produtos => (
+      <div key={produtos.id}>
+        <h1>{produtos.name}</h1>
+        <p>{produtos.description}</p>
+        <p>{produtos.price}</p>
+      </div>)
+    )}
+  </div>
+    );
+  } 
 }
 
 export default App;
