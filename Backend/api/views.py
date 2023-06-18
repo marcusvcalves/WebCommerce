@@ -20,6 +20,11 @@ def apiOverview(request):
         'Criar um produto': '/api/criar-produto/',
         'Atualizar um produto': '/api/atualizar-produto/id',
         'Excluir um produto': '/api/excluir-produto/id',
+        'Listar todos clientes': '/api/mostrar-clientes/',
+        'Mostrar um cliente': '/api/mostrar-cliente/id',
+        'Criar um cliente': '/api/criar-cliente/',
+        'Atualizar um cliente': '/api/atualizar-cliente/id',
+        'Excluir um cliente': '/api/excluir-cliente/id',
 
     }
     return Response(api_urls)
@@ -62,3 +67,79 @@ def excludeProduct(request, pk):
     product.delete()
     
     return Response("Produto excluído com sucesso")
+
+@api_view(['GET'])
+def showCustomers(request):
+    customers = Customer.objects.all()
+    serializer = CustomerSerializer(customers,many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def showCustomer(request, pk):
+    customers = Customer.objects.get(id=pk)
+    serializer = CustomerSerializer(customers,many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def createCustomer(request):
+    serializer = CustomerSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def updateCustomer(request, pk):
+    customer = Customer.objects.get(id=pk)
+    serializers = CustomerSerializer(instance=customer, data=request.data)
+
+    if serializers.is_valid():
+        serializers.save()
+    
+    return Response(serializers.data)
+
+@api_view(['DELETE'])
+def excludeCustomer(request, pk):
+    customer = Customer.objects.get(id=pk)
+    customer.delete()
+    
+    return Response("Cliente excluído com sucesso")
+
+@api_view(['GET'])
+def showCustomers(request):
+    customers = Customer.objects.all()
+    serializer = CustomerSerializer(customers,many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def showCustomer(request, pk):
+    customers = Customer.objects.get(id=pk)
+    serializer = CustomerSerializer(customers,many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def createCustomer(request):
+    serializer = CustomerSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def updateCustomer(request, pk):
+    customer = Customer.objects.get(id=pk)
+    serializers = CustomerSerializer(instance=customer, data=request.data)
+
+    if serializers.is_valid():
+        serializers.save()
+    
+    return Response(serializers.data)
+
+@api_view(['DELETE'])
+def excludeCustomer(request, pk):
+    customer = Customer.objects.get(id=pk)
+    customer.delete()
+    
+    return Response("Cliente excluído com sucesso")
