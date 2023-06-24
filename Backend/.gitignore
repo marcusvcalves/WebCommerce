@@ -4,3 +4,4 @@ env/
 *.pyc
 files/
 __pycache__/
+migrations/
