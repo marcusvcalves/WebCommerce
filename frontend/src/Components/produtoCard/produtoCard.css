@@ -7,9 +7,16 @@
 .produtoCard{
     background: #1976D2 !important;
     color: #ffff !important;
-    width: 250px;
+    width: 350px;
     height: 350px;
     border-radius: 5px;
     margin: 10% 5% 0% 5%;
 
+}
+.produto-text{
+    padding-left: 5%;
+}
+button.comprar-button{
+    width: 100%;
+    background-color: orange !important;
 }
