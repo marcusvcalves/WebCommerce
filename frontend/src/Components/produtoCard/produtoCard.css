@@ -1,9 +1,15 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 .produtoCard{
     background: #1976D2 !important;
     color: #ffff !important;
     width: 250px;
-    height: 250px;
+    height: 350px;
     border-radius: 5px;
-
+    margin: 10% 5% 0% 5%;
 
 }

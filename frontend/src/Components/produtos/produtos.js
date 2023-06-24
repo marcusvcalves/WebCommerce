@@ -23,14 +23,16 @@ loadProducts = async () => {
 
 render() {
   const { produtos } = this.state;
+  const serverUrl = 'http://localhost:8000';
 
   return (
-    <div>
+    <div className='container'>
       {produtos.map(produto => (
         <ProdutoCard
         key = {produto.id}
         id = {produto.id}
         name = {produto.name}
+        image={produto.image ? serverUrl + produto.image : null}
         description = {produto.description}
         price = {produto.price}
         />
