@@ -1,8 +1,8 @@
-import './App.css';
 import { Component } from 'react';
+import './produtos.css';
+import { ProdutoCard } from '../produtoCard/produtoCard';
 
-
-class App extends Component {
+class Produto extends Component {
 state = {
   produtos: []
 };
@@ -25,17 +25,19 @@ render() {
   const { produtos } = this.state;
 
   return (
-  <div className="App">
-    {produtos.map(produtos => (
-      <div key={produtos.id}>
-        <h1>{produtos.name}</h1>
-        <p>{produtos.description}</p>
-        <p>{produtos.price}</p>
-      </div>)
-    )}
-  </div>
-    );
-  } 
+    <div>
+      {produtos.map(produto => (
+        <ProdutoCard
+        key = {produto.id}
+        id = {produto.id}
+        name = {produto.name}
+        description = {produto.description}
+        price = {produto.price}
+        />
+      ))}
+    </div>
+  );
+}
 }
 
-export default App;
+export default Produto;
