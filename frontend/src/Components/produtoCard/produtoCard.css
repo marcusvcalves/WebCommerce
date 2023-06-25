@@ -19,4 +19,14 @@
 button.comprar-button{
     width: 100%;
     background-color: orange !important;
+    
+}
+.produto-footer{
+    display: flex;
+    align-items: center;
+    padding: 10% 5%;
+
+}
+.produto-price{
+    font-size: 1.2em;
 }
