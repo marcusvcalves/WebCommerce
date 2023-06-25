@@ -5,10 +5,12 @@
 }
 
 .produtoCard{
+    display: flex;
+    flex-direction: column;
     background: #1976D2 !important;
     color: #ffff !important;
     width: 350px;
-    height: 350px;
+    height: 375px;
     border-radius: 5px;
     margin: 10% 5% 0% 5%;
 
@@ -16,16 +18,17 @@
 .produto-text{
     padding-left: 5%;
 }
+.produto-footer{
+    display: flex;
+    align-items: center;
+    padding: 0% 5%;
+    flex-grow: 1;
+
+}
 button.comprar-button{
     width: 100%;
     background-color: orange !important;
     
-}
-.produto-footer{
-    display: flex;
-    align-items: center;
-    padding: 10% 5%;
-
 }
 .produto-price{
     font-size: 1.2em;
