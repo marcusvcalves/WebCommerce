@@ -1,20 +1,20 @@
 import './produtos.css';
 import { ProdutoCard } from '../produtoCard/produtoCard';
 import React, { useEffect, useState } from 'react';
+import { loadProducts } from '../../utils/loadProducts/loadProducts'
 
 const Produto = () => {
   const [produtos, setProdutos] = useState([]);
   const serverUrl = 'http://localhost:8000';
 
   useEffect(() => {
-    loadProducts();
+    async function fetchData() {
+      const productsJson = await loadProducts();
+      setProdutos(productsJson);
+    }
+    fetchData();
   }, []);
 
-  const loadProducts = async () => {
-    const productsResponse = await fetch('http://127.0.0.1:8000/api/mostrar-produtos/');
-    const productsJson = await productsResponse.json();
-    setProdutos(productsJson);
-  }
 
   return (
     <div className='container'>
