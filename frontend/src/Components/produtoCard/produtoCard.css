@@ -28,7 +28,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 .produto-footer{
     position: absolute;
