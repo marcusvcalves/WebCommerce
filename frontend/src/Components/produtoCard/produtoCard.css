@@ -5,6 +5,7 @@
 }
 
 .produtoCard{
+    position: relative;
     display: flex;
     flex-direction: column;
     background: #1976D2 !important;
@@ -13,15 +14,30 @@
     height: 375px;
     border-radius: 5px;
     margin: 10% 5% 0% 5%;
+}
+
+.produto-img{
+    height: 200px;
+    width: 100%;
 
 }
 .produto-text{
     padding-left: 5%;
+    font-size: 1.1em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .produto-footer{
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
     display: flex;
     align-items: center;
-    padding: 0% 5%;
+    padding: 10% 5%;
     flex-grow: 1;
 
 }
@@ -31,5 +47,7 @@ button.comprar-button{
     
 }
 .produto-price{
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
+
+
