@@ -1,4 +1,4 @@
-# Django React WebCommerce
+# WebCommerce
 
 #### Projeto utilizando Django no back-end com Django Rest Framework para criação de API Rest e React no front-end consumindo os dados do back-end.
 
